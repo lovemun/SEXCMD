@@ -1,8 +1,8 @@
 # SEXCMD : SEX Created Marker and Determination
 
- USAGE : perl determine.pl sex_marker_filtered.hg19.final.fasta input.fastq.gz
+ USAGE : perl determine.pl sex_marker_filtered.hg38.final.fasta input.fastq.gz 2> /dev/null 1> input.SEX_OUTPUT
 
- SEXCMD is available at https://github.com/pkoiu87/SEXCMD
+ SEXCMD is available at https://github.com/lovemun/SEXCMD
 
  The code is written in Perl and bash script. This tool is supported on Linux and needs Python, lastz, blastall and bwa. The tool uses gzip compressed fastq file as input and R1 and R2 file can be used in case of paired-end or mate pair. And you should give marker fasta file path, input fastq file path as auguements.
 
@@ -37,14 +37,16 @@
 
 4. Convert sex marker file format(text -> fasta)
 
- python util/3.make_markerFASTA.py sex_marker_filtered.hg19.txt
+ python util/3.make_markerFASTA.py sex_marker_filtered.hg38.txt
 
 5. Filtered ONLY MAPPED to chrX, chrY
 
- blastall -p blastn -d hg19 -i sex_marker_filtered.hg19.fasta -a 16 -W 8 -m 9 > sex_marker_filtered.hg19.fasta.blastm9 python util/4.blast_filter.py sex_marker_filtered.hg19.fasta sex_marker_filtered.hg19.fasta.blastm9 sex_marker_filtered.hg19.final.fasta
+ blastall -p blastn -d hg38 -i sex_marker_filtered.hg38.fasta -a 16 -W 8 -m 9 > sex_marker_filtered.hg38.fasta.blastm9 
+ 
+ python util/4.blast_filter.py sex_marker_filtered.hg38.fasta sex_marker_filtered.hg38.fasta.blastm9 sex_marker_filtered.hg38.final.fasta
 
 6. Index sex marker file
 
- bwa index -a is sex_marker_filtered.hg19.final.fasta
+ bwa index -a is sex_marker_filtered.hg38.final.fasta
 
-Final sex marker : sex_marker_filtered.hg19.final.fasta
+Final sex marker : sex_marker_filtered.hg38.final.fasta
