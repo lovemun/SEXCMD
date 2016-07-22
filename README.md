@@ -41,7 +41,7 @@
 
 5. Filtered ONLY MAPPED to chrX, chrY
 
- blastall -p blastn -d hg38 -i sex_marker_filtered.hg38.fasta -a 16 -W 8 -m 9 > sex_marker_filtered.hg38.fasta.blastm9 
+ blastn -db hg38.fa -query sex_marker_filtered.hg38.fasta -num_threads 4 -word_size 8 -outfmt 7 > sex_marker_filtered.hg38.fasta.blastm9
  
  python util/4.blast_filter.py sex_marker_filtered.hg38.fasta sex_marker_filtered.hg38.fasta.blastm9 sex_marker_filtered.hg38.final.fasta
 
