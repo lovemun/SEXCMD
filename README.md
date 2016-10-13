@@ -50,3 +50,7 @@
  bwa index -a is sex_marker_filtered.hg38.final.fasta
 
 Final sex marker : sex_marker_filtered.hg38.final.fasta
+
+# Sex determination
+
+perl determineGender.pl sex_marker_filtered.hg38.final.fasta XY input.fastq.gz
