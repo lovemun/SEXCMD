@@ -18,9 +18,9 @@
 
 1. Extract sex chromosome from Reference genome(ex. Human)
 
-  python 0.extract_chr_from_REF.py hg38.fasta X > hg38.chrX.fasta
+  python 1.extract_chr_from_REF.py hg38.fasta X > hg38.chrX.fasta
 
-  python 0.extract_chr_from_REF.py hg38.fasta Y > hg38.chrY.fasta
+  python 1.extract_chr_from_REF.py hg38.fasta Y > hg38.chrY.fasta
 
 
 2. Mapping between sex chromosomes
@@ -29,21 +29,21 @@
 
 3. Generate sex marker text file
 
- python 1.sex_marker.py chrX_chrY.maf hg38.ucsc.gtf 35 > sex_marker.hg38.txt 
+ python 2.sex_marker.py chrX_chrY.maf hg38.ucsc.gtf 35 > sex_marker.hg38.txt 
  (distance between marker : 35(recommended))
 
- python 2.sex_marker_filtered.py sex_marker.hg38.txt hg38.ucsc.gtf 151 5 > sex_marker_filtered.hg38.txt 
+ python 3.sex_marker_filtered.py sex_marker.hg38.txt hg38.ucsc.gtf 151 5 > sex_marker_filtered.hg38.txt 
  (read length : 151 admit missmatch count : 5)
 
 4. Convert sex marker file format(text -> fasta)
 
- python 3.make_markerFASTA.py sex_marker_filtered.hg38.txt
+ python 4.make_markerFASTA.py sex_marker_filtered.hg38.txt
 
 5. Filtered ONLY MAPPED to chrX, chrY
 
  blastn -db hg38.fa -query sex_marker_filtered.hg38.fasta -num_threads 4 -word_size 8 -outfmt 7 > sex_marker_filtered.hg38.fasta.blastm9
  
- python 4.blast_filter.py sex_marker_filtered.hg38.fasta sex_marker_filtered.hg38.fasta.blastm9 sex_marker_filtered.hg38.final.fasta
+ python 5.blast_filter.py sex_marker_filtered.hg38.fasta sex_marker_filtered.hg38.fasta.blastm9 sex_marker_filtered.hg38.final.fasta
 
 6. Index sex marker file
 
