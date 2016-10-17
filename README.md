@@ -1,4 +1,4 @@
-# SEXCMD : SEX Created Marker and Determination
+# SEXCMD : Created Sex Marker and Determination
 
  USAGE : perl determine.pl sex_marker_filtered.hg38.final.fasta input.fastq.gz 2> /dev/null 1> input.SEX_OUTPUT
 
