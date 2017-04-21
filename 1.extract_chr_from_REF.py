@@ -10,7 +10,10 @@ if len(args) != 3:
 
 infile = open(args[1], 'r')
 CHR = 'chr'+str(args[2])
-outfile = open(args[1][:-5]+CHR+'.fasta', 'w')
+if args[1][:-5] == 'fasta':
+    outfile = open(args[1][:-6]+'_'+CHR+'.fasta', 'w')
+if args[1][:-2] == 'fa':
+    outfile = open(args[1][:-3]+'_'+CHR+'.fasta', 'w')
 
 chr_dict = {}
 seq = ''
