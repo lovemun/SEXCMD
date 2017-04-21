@@ -23,9 +23,9 @@
 
 1. Extract sex chromosome from Reference genome(ex. Human)
 
-  python 1.extract_chr_from_REF.py hg38.fasta X > hg38.chrX.fasta
+  python 1.extract_chr_from_REF.py hg38.fasta X
 
-  python 1.extract_chr_from_REF.py hg38.fasta Y > hg38.chrY.fasta
+  python 1.extract_chr_from_REF.py hg38.fasta Y
 
 
 2. Mapping between sex chromosomes
