@@ -6,12 +6,17 @@
 
  The code is written in Perl and bash script. This tool is supported on Linux and needs Python, lastz, blastall and bwa. The tool uses gzip compressed fastq file as input and R1 and R2 file can be used in case of paired-end or mate pair. And you should give marker fasta file path, input fastq file path as auguements.
 
-# Required
- 1. Linux Program
- 2. Python
- 3. bwa(version 7.0 or later)
- 4. blastall
- 5. lastz(Release 1.02.00)
+# Required software
+ 1. Python (https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi)
+ 2. bwa(version 7.0 or later) (https://sourceforge.net/projects/bio-bwa/files/)
+ 3. blastall (ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
+ 4. lastz(Release 1.02.00) (http://www.bx.psu.edu/~rsharris/lastz/lastz-1.04.00.tar.gz)
+ 5. samtools (https://sourceforge.net/projects/samtools/files/samtools/)
+ 6. R (https://www.r-project.org/)
+ 
+# Input Files
+ 1. Reference genome fasta file (ex. hg38.fa)
+ 2. Input sequence file (ex. ERR000000.fastq.gz)
 
 # Example
  If you want to create marker file, you can make own sex marker file for your datafiles. There are 6 process steps for creating own sex marker file.
