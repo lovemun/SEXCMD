@@ -120,7 +120,7 @@ colnames(ct) <- c("Length", "Xcount", "Ycount")
 
 ## gender prediction
 rs <- sum(ct$Ycount)/sum(ct$Xcount)
-if (rs < 0.05){
+if (rs < 0.2){
   sex <- "F"
 } else {
   sex <- "M"
