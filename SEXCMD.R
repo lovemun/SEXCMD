@@ -11,7 +11,7 @@ RNA_COEF <- c(1, 5)
 ## Argument handle
 args <- commandArgs(trailingOnly = TRUE)
 usage_message <- "USAGE: Rscript SEXCMD.R SEX_Marker.fasta total_read_counts Seq_type[1/2/3] [XY/ZW] input.fastq.gz
-    Sequencing Type 1:Whole Exome Seq, 2:RNA-Seq, 3:Whole Genome Seq, Sex type : XY or ZW"
+    Sequencing Type 1:Whole Exome Seq, 2:RNA-Seq, 3:Whole Genome Seq, Sex determination system type : XY or ZW"
 
 if (length(args)!= 3) {
   write(usage_message, stderr())
