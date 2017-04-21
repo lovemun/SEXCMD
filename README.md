@@ -53,4 +53,5 @@ Final sex marker : sex_marker_filtered.hg38.final.fasta
 
 # Sex determination
 
-perl determineGender.pl sex_marker_filtered.hg38.final.fasta XY input.fastq.gz
+Rscript SEXCMD.R sex_marker_filtered.hg38.final.fasta [1/2/3] input.fastq.gz
+[1/2/3] : sequencing type (1: Exome sequencing, 2: RNA sequencing, 3: Whole genome sequencing)
