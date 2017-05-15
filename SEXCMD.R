@@ -115,13 +115,21 @@ marker_seq_list <- read.fasta(marker_file, set.attributes=F)
 marker_length_list <- lapply(marker_seq_list, length)
 marker_seq_list[] <- 0
 marker_seq_list[count$V1] <- count$V2
-ct <- data.frame(Length=do.call(rbind, marker_length_list[startsWith(x = names(marker_seq_list), prefix = "chrX")]), Count=do.call(rbind, marker_seq_list[startsWith(x = names(marker_seq_list), prefix = "chrX")]))
-ct <- cbind(ct, do.call(rbind, marker_seq_list[startsWith(x = names(marker_seq_list), prefix = "chrY")]))
-colnames(ct) <- c("Length", "Xcount", "Ycount")
+if (sextype = "XY"){
+  ct <- data.frame(Length=do.call(rbind, marker_length_list[startsWith(x = names(marker_seq_list), prefix = "chrX")]), Count=do.call(rbind, marker_seq_list[startsWith(x = names(marker_seq_list), prefix = "chrX")]))
+  ct <- cbind(ct, do.call(rbind, marker_seq_list[startsWith(x = names(marker_seq_list), prefix = "chrY")]))
+  colnames(ct) <- c("Length", "Xcount", "Ycount")
+}
+if (sextype = "ZW"){
+  ct <- data.frame(Length=do.call(rbind, marker_length_list[startsWith(x = names(marker_seq_list), prefix = "chrZ")]), Count=do.call(rbind, marker_seq_list[startsWith(x = names(marker_seq_list), prefix = "chrW")]))
+  ct <- cbind(ct, do.call(rbind, marker_seq_list[startsWith(x = names(marker_seq_list), prefix = "chrW")]))
+  colnames(ct) <- c("Length", "Zcount", "Wcount")
+}
 
 ## gender prediction
 rs <- sum(ct$Ycount)/sum(ct$Xcount)
 if (sextype = "XY"){
+  rs <- sum(ct$Ycount)/sum(ct$Xcount)
   if (rs < 0.2){
     sex <- "F"
   } else {
@@ -130,6 +138,7 @@ if (sextype = "XY"){
   ct <- rbind(ct, c(paste0("Ratio of X and Y counts is ", rs), paste0("Sex of this sample ", input_fastq, " is ", sex), ""))
 }
 if (sextype = "ZW"){
+  rs <- sum(ct$Wcount)/sum(ct$Zcount)
   if (rs < 0.2){
     sex <- "M"
   } else {
@@ -147,6 +156,3 @@ write.table(ct, result_file, quote=F, col.names=NA, sep="\t")
 if (all(file.remove(stat_file, count_file))) {
   write(paste("LOG!!: SEXCMD calculation result has been saved on ",result_file,".",sep=''),stderr())	
 }
-
-
-
