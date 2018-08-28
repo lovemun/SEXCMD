@@ -13,7 +13,7 @@ args <- commandArgs(trailingOnly = TRUE)
 usage_message <- "USAGE: Rscript SEXCMD.R SEX_Marker.fasta total_read_counts Seq_type[1/2/3] [XY/ZW] input.fastq.gz
     Sequencing Type 1:Whole Exome Seq, 2:RNA-Seq, 3:Whole Genome Seq, Sex determination system type : XY or ZW"
 
-if (length(args)!= 3) {
+if (length(args)!= 4) {
   write(usage_message, stderr())
   quit(status = 1)
 }
