@@ -6,7 +6,7 @@
 
  The code is written in Perl and bash script. This tool is supported on Linux and needs Python, lastz, blastall and bwa. The tool uses gzip compressed fastq file as input and R1 and R2 file can be used in case of paired-end or mate pair. And you should give marker fasta file path, input fastq file path as auguements.
 
-# Required software
+## Required software
  1. Python (https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi)
  2. bwa(version 7.0 or later) (https://sourceforge.net/projects/bio-bwa/files/)
  3. blastall (ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
@@ -14,11 +14,11 @@
  5. samtools (https://sourceforge.net/projects/samtools/files/samtools/)
  6. R (https://www.r-project.org/)
  
-# Input Files
+## Input Files
  1. Reference genome fasta file (ex. hg38.fa)
  2. Input sequence file (ex. ERR000000.fastq.gz)
 
-# Example
+## Example
  If you want to create marker file, you can make own sex marker file for your datafiles. There are 6 process steps for creating own sex marker file.
 
 1. Extract sex chromosome from Reference genome(ex. Human)
@@ -56,10 +56,18 @@
 
 Final sex marker : sex_marker_filtered.hg38.final.fasta
 
-# Sex determination
+## Sex determination
 
 Rscript SEXCMD.R sex_marker_filtered.hg38.final.fasta [1/2/3] [XY/ZW] input.fastq.gz
 
 [1/2/3] : sequencing type (1: Exome sequencing, 2: RNA sequencing, 3: Whole genome sequencing)
 
 [XY/ZW] : Sex determination system
+
+## Contact
+
+lovemun@kribb.re.kr
+
+## Citation
+
+
