@@ -12,7 +12,7 @@ infile = open(args[1], 'r')
 CHR = 'chr'+str(args[2])
 if args[1][(len(args[1])-5):len(args[1])] == 'fasta':
     outfile = open(args[1][:-6]+'_'+CHR+'.fasta', 'w')
-if args[1][(len(args[1])-3):len(args[1])] == 'fa':
+if args[1][(len(args[1])-2):len(args[1])] == 'fa':
     outfile = open(args[1][:-3]+'_'+CHR+'.fasta', 'w')
 
 chr_dict = {}
